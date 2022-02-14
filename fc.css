@@ -1,0 +1,13 @@
+#videos {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1400;
+}
+#webCam {
+    margin-left: 95.2;
+    border: 3px solid green;
+}
+#canvas {
+    border: 3px solid green;
+}
