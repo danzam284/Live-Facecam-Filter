@@ -58,8 +58,8 @@ function screenShot() {
     image.src = webcam.snap();
     pixels = ctx.getImageData(0, 0, w, h);
     newImg = [];
-    for (let i = 0; i < h; i += slider.valueAsNumber) {
-        for (let j = 0; j < w; j += slider.valueAsNumber) {
+    for (let i = 0; i < h; i += 27 - slider.valueAsNumber) {
+        for (let j = 0; j < w; j += 27 - slider.valueAsNumber) {
             const posx = j * 4;
             const posy = i * 4;
             const pos = posy * w + posx;
