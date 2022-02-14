@@ -57,6 +57,8 @@ function screenShot() {
     };
     image.src = webcam.snap();
     pixels = ctx.getImageData(0, 0, w, h);
+    console.log(pixels)
+
     newImg = [];
     for (let i = 0; i < h; i += 27 - slider.valueAsNumber) {
         for (let j = 0; j < w; j += 27 - slider.valueAsNumber) {
