@@ -4,10 +4,16 @@ var canvasElement = document.getElementById("canvas");
 var webcam = new Webcam(webCamElement, "user", canvasElement);
 var buttonMulti = document.getElementById("m");
 var buttonGrey = document.getElementById("g");
+var buttonRB = document.getElementById("rb");
+var buttonRG = document.getElementById("rg");
+var buttonBG = document.getElementById("bg");
 var buttonSingle = document.getElementById("s");
 var buttonSym = document.getElementById("sym");
 var buttonNum = document.getElementById("num");
 var buttonLet = document.getElementById("let");
+var buttonIntense = document.getElementById("intense");
+var buttonInverse = document.getElementById("inverse");
+var buttonInfared = document.getElementById("infared");
 var mode1 = "m";
 var mode2 = "s";
 var col = null;
@@ -22,8 +28,26 @@ buttonMulti.onclick = function() {
 buttonGrey.onclick = function() {
     mode1 = "g";
 }
+buttonRB.onclick = function() {
+    mode1 = "rb";
+}
+buttonRG.onclick = function() {
+    mode1 = "rg";
+}
+buttonBG.onclick = function() {
+    mode1 = "bg";
+}
 buttonSingle.onclick = function() {
     mode1 = "s";
+}
+buttonInverse.onclick = function() {
+    mode1 = "inv";
+}
+buttonIntense.onclick = function() {
+    mode1 = "i";
+}
+buttonInfared.onclick = function() {
+    mode1 = "infa";
 }
 
 buttonSym.onclick = function() {
@@ -35,6 +59,7 @@ buttonNum.onclick = function() {
 buttonLet.onclick = function() {
     mode2 = "l";
 }
+
 
 class Cell {
     constructor(x, y, symbol, color) {
@@ -75,8 +100,31 @@ function screenShot() {
                 if (mode1 == "m") {
                     col = "rgb(" + red + ", " + green + ", " +  blue + ")";
                 }
+                else if (mode1 == "infa") {
+                    if (colTot > 128) {
+                        col = "rgb(" + red / 5 + ", " + 0 + ", " +  blue + ")";
+                    }
+                    else {
+                        col = "rgb(" + red * 10 + ", " + 0 + ", " +  blue * 2 + ")";
+                    }
+                }
+                else if (mode1 == "inv") {
+                    col = "rgb(" + green + ", " + blue + ", " +  red + ")";
+                }
+                else if (mode1 == "i") {
+                    col = "rgb(" + red * 5 + ", " + green * 5 + ", " +  blue * 5 + ")";
+                }
                 else if (mode1 == "s") {
                     col = "black";
+                }
+                else if (mode1 == "rb") {
+                    col = "rgb(" + red + ", " + 0 + ", " +  blue + ")";
+                }
+                else if (mode1 == "rg") {
+                    col = "rgb(" + red + ", " + green + ", " +  0 + ")";
+                }
+                else if (mode1 == "bg") {
+                    col = "rgb(" + 0 + ", " + green + ", " +  blue + ")";
                 }
                 else {
                     col = "rgb(" + colTot + ", " + colTot + ", " + colTot + ")";
