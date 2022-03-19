@@ -11,6 +11,9 @@ var buttonSingle = document.getElementById("s");
 var buttonSym = document.getElementById("sym");
 var buttonNum = document.getElementById("num");
 var buttonLet = document.getElementById("let");
+var buttonCirc = document.getElementById("circ");
+var buttonDrk = document.getElementById("drk");
+var buttonLgt = document.getElementById("lgt");
 var buttonIntense = document.getElementById("intense");
 var buttonInverse = document.getElementById("inverse");
 var buttonInfared = document.getElementById("infared");
@@ -58,6 +61,15 @@ buttonNum.onclick = function() {
 }
 buttonLet.onclick = function() {
     mode2 = "l";
+}
+buttonCirc.onclick = function() {
+    mode2 = "c";
+}
+buttonDrk.onclick = function() {
+    mode2 = "d";
+}
+buttonLgt.onclick = function() {
+    mode2 = "g";
 }
 
 
@@ -135,6 +147,15 @@ function screenShot() {
                 }
                 else if (mode2 == "n") {
                     method = number(colTot);
+                }
+                else if (mode2 == "c") {
+                    method = circle(colTot);
+                }
+                else if (mode2 == "d") {
+                    method = darkDot(colTot);
+                }
+                else if (mode2 == "g") {
+                    method = lightDot(colTot);
                 }
                 else {
                     method = letter(colTot);
@@ -273,6 +294,36 @@ function letter(total) {
     }
     else {
         return "X";
+    }
+}
+
+function circle(total) {
+    if (total < 85) {
+        return "o";
+    }
+    else if (total < 170) {
+        return "0";
+    }
+    else {
+        return "O";
+    }
+}
+
+function darkDot(total) {
+    if (total >= 100) {
+        return ".";
+    }
+    else {
+        return "";
+    }
+}
+
+function lightDot(total) {
+    if (total < 100) {
+        return "*";
+    }
+    else {
+        return "";
     }
 }
 
